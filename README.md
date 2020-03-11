@@ -66,11 +66,24 @@ services:
  
  <?php
 var_dump(PDO::getAvailableDrivers());
-phpinfo();
+
+$dsn = "mysql:host=mysqldb;"; //mysqldb é encontrado no arquivo docker-compose.yml
+$dbuser = "root";
+$dbpass = "chkdsk";
+
+
+try{
+    $pdo = new PDO($dsn,$dbuser, $dbpass);
+    echo "Conectado!";
+
+}catch (PDOException $e){
+    echo $e->getMessage();
+}
  ```
  
 ### A saída deverá ser:
 ``` php
 array(2) { [0]=> string(6) "sqlite" [1]=> string(5) "mysql" }
+Conectado
 ```
 ...e as informações do phpinfo()
