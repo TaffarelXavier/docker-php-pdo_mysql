@@ -47,7 +47,14 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=chkdsk
       - MYSQL_DATABASE=ltai_db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=chkdsk
 ```
+- MYSQL_USER=root
+- MYSQL_PASSWORD=chkdsk são necessários para criar um outro usuário.
+
+É necessário criar as pastas ``./data`` e ``./www``
+
  ## 3 Passo)
  Executar os camandos: 
  ```docker build . && docker-compose build```
