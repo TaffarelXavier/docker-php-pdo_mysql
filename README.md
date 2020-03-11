@@ -19,7 +19,7 @@ COPY ./www /var/www/html/
  ```
  ### ``www`` é uma pasta dentro da pasta ``demopdo-mysql``
  
- ## 2 Passo)
+ ## 3 Passo)
 Criar o arquivo ``docker-compose.yml`` com o seguinte conteúdo:
 ``` bash
 version: "3"
@@ -55,6 +55,22 @@ services:
 
 É necessário criar as pastas ``./data`` e ``./www``
 
- ## 3 Passo)
+ ## 4 Passo)
  Executar os camandos: 
  ```docker build . && docker-compose build```
+ 
+ ## 5 Passo)
+ Criar, dentro da pasta ``www``, o arquivo ``index.php``;
+ Dentro dele, adicione este conteúdo:
+ ```php
+ 
+ <?php
+var_dump(PDO::getAvailableDrivers());
+phpinfo();
+ ```
+ 
+### A saída deverá ser:
+``` php
+array(2) { [0]=> string(6) "sqlite" [1]=> string(5) "mysql" }
+```
+...e as informações do phpinfo()
